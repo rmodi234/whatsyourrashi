@@ -2,8 +2,10 @@
   "name": "whatsyourrashi",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rmodi234.github.io/whatsyourrashi/",
   "dependencies": {
     "bootstrap": "^4.3.1",
+   
     "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "moment-range": "^4.0.2",
@@ -17,8 +19,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,60 @@
+import React from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      day:'',
+      month:''
+      }
+  }
+  handelsubmit= (e) =>{
+    e.preventDefault();
+     const days = this.state.day
+     const months=this.state.month
+      this.rashi(days,months);
+  }
+  rashi=(day,month)=>{
+    
+  }
+  handelday=(selectedOption)=>{
+    // e.preventDefault();
+    this.setState({day:selectedOption })
+
+  }
+  handelmonth=(selectedOption)=>{
+    // e.preventDefault();
+    this.setState({month:selectedOption})
+  }
+  render() {
+    const day=[];
+  let i=1
+  for (i=1;i<32;i++){
+    day.push(i)
+  }
+  const month =['1','2','3','4','5','6','7','8','9','10','11','12'];
+  // console.log(day);
+  const defaultOption = day[0]
+  // console.log(defaultOption);
+   
+    return ( 
+    <React.Fragment>
+      <form onSubmit={this.handelsubmit}>
+      <Dropdown options={day} value={this.state.day} onChange={this.handelday} placeholder="Select day" ref="day" />
+      <Dropdown options={month} value={this.state.month} onChange={this.handelmonth}   placeholder="Select month" ref="month"/>
+       <input  type="submit" value="Submit"/>
+      </form>
+    </React.Fragment>);
+  }
+}
+ 
+export default App;
+
+
+
+
